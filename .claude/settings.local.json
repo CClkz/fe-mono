@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm init:*)",
+      "Bash(cd packages:*)",
+      "Bash(cd packages/vite-vue3-ts && pnpm add vue-router@4)",
+      "Bash(cd vite-vue3-ts:*)",
+      "Bash(cd ./vite-vue3-ts && pnpm add vue-router@4)",
+      "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && pnpm run --list)",
+      "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && pnpm run)",
+      "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && mv packages/vite-vue3-ts packages/vue3-app)"
+    ]
+  }
+}

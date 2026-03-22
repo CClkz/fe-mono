@@ -1,0 +1,27 @@
+{
+  "name": "fe-mono",
+  "version": "1.0.0",
+  "description": "Frontend monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.8.0",
+  "scripts": {
+    "dev:vue3-app": "pnpm --filter @fe-mono/vue3-app dev",
+    "build:vue3-app": "pnpm --filter @fe-mono/vue3-app build",
+    "preview:vue3-app": "pnpm --filter @fe-mono/vue3-app preview",
+    "type-check:vue3-app": "pnpm --filter @fe-mono/vue3-app type-check",
+    "lint:vue3-app": "pnpm --filter @fe-mono/vue3-app lint",
+    "test:vue3-app": "pnpm --filter @fe-mono/vue3-app test",
+    "test:coverage:vue3-app": "pnpm --filter @fe-mono/vue3-app test:coverage",
+    "test:ui:vue3-app": "pnpm --filter @fe-mono/vue3-app test:ui",
+    "dev:uni-vue3": "pnpm --filter uni-vue3 dev:h5",
+    "build:uni-vue3": "pnpm --filter uni-vue3 build:h5",
+    "type-check:uni-vue3": "pnpm --filter uni-vue3 type-check",
+    "clean": "rm -rf node_modules **/node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}
