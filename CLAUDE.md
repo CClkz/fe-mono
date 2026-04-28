@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **frontend monorepo** using pnpm workspaces with two independent projects:
+This is a **frontend monorepo** using pnpm workspaces with three independent projects:
 
 1. **`@fe-mono/vue3-app`** (`packages/vue3-app/`) - A modern Vue 3 application built with:
    - Vue 3 + Composition API + `<script setup>` syntax
@@ -22,7 +22,15 @@ This is a **frontend monorepo** using pnpm workspaces with two independent proje
    - ESLint + Prettier + oxlint for code quality
    - Vue I18n installed (not yet configured)
 
-Both projects are configured as independent packages within a pnpm workspace.
+3. **`@fe-mono/react-demo`** (`packages/react-demo/`) - A modern React application built with:
+   - React 18 with TypeScript
+   - Vite 5 as build tool
+   - React Router 6 for client-side routing
+   - Zustand for state management
+   - TailwindCSS for styling
+   - ESLint and Vitest scripts configured
+
+All projects are configured as independent packages within a pnpm workspace.
 
 ## Key Configuration Files
 
@@ -43,6 +51,13 @@ Both projects are configured as independent packages within a pnpm workspace.
 - `packages/uni-vue3/src/pages.json` - UniApp page routing and tabBar configuration
 - `packages/uni-vue3/src/manifest.json` - Platform-specific app configurations
 - `packages/uni-vue3/.prettierrc.json` - Prettier formatting rules
+
+### react-demo Project
+- `packages/react-demo/vite.config.ts` - Vite configuration with `@/` alias to `src/`
+- `packages/react-demo/tsconfig.app.json` - TypeScript config for React app
+- `packages/react-demo/tsconfig.node.json` - TypeScript config for Node/CLI
+- `packages/react-demo/tailwind.config.js` - TailwindCSS configuration
+- `packages/react-demo/postcss.config.js` - PostCSS configuration
 
 ## Development Commands
 
@@ -67,6 +82,16 @@ All commands are run from the **monorepo root** using `pnpm run <command>`:
 - `cd packages/uni-vue3 && pnpm run dev:mp-weixin` - Develop for WeChat Mini Program
 - `cd packages/uni-vue3 && pnpm run build:mp-weixin` - Build WeChat Mini Program
 - See `packages/uni-vue3/CLAUDE.md` for complete platform-specific commands
+
+### react-demo Project
+- `pnpm run dev:react-demo` - Start development server
+- `pnpm run build:react-demo` - Build for production
+- `pnpm run preview:react-demo` - Preview production build
+- `pnpm run type-check:react-demo` - Run TypeScript type checking
+- `pnpm run lint:react-demo` - Run ESLint with auto-fix
+- `pnpm run test:react-demo` - Run unit tests with Vitest
+- `pnpm run test:coverage:react-demo` - Run tests with coverage report
+- `pnpm run test:ui:react-demo` - Launch Vitest UI
 
 ### Monorepo Maintenance
 - `pnpm run clean` - Remove all `node_modules` directories (use with caution)
@@ -93,18 +118,37 @@ fe-mono/
 │   │   ├── public/               # Public assets
 │   │   └── index.html            # HTML template
 │   │
-│   └── uni-vue3/                 # UniApp multi-platform application
+│   ├── uni-vue3/                 # UniApp multi-platform application
+│   │   ├── src/
+│   │   │   ├── pages/            # UniApp pages (file-based routing)
+│   │   │   ├── static/           # Static assets
+│   │   │   ├── App.vue           # Root component with UniApp lifecycle
+│   │   │   ├── main.ts           # Entry with SSR support
+│   │   │   ├── pages.json        # Page routing and tabBar config
+│   │   │   ├── manifest.json     # Platform-specific configurations
+│   │   │   ├── uni.scss          # Global SCSS styles
+│   │   │   ├── env.d.ts          # Vue module declarations
+│   │   │   └── shime-uni.d.ts    # UniApp type extensions
+│   │   └── (see packages/uni-vue3/CLAUDE.md for detailed structure)
+│   │
+│   └── react-demo/               # Modern React application
 │       ├── src/
-│       │   ├── pages/            # UniApp pages (file-based routing)
-│       │   ├── static/           # Static assets
-│       │   ├── App.vue           # Root component with UniApp lifecycle
-│       │   ├── main.ts           # Entry with SSR support
-│       │   ├── pages.json        # Page routing and tabBar config
-│       │   ├── manifest.json     # Platform-specific configurations
-│       │   ├── uni.scss          # Global SCSS styles
-│       │   ├── env.d.ts          # Vue module declarations
-│       │   └── shime-uni.d.ts    # UniApp type extensions
-│       └── (see packages/uni-vue3/CLAUDE.md for detailed structure)
+│       │   ├── assets/           # Static assets
+│       │   ├── components/       # Reusable React components
+│       │   │   └── layout/       # Layout components (BottomTabBar, etc.)
+│       │   ├── pages/            # Page components
+│       │   │   ├── index/        # Home page
+│       │   │   ├── blog/         # Blog pages
+│       │   │   ├── user/         # User center pages
+│       │   │   └── login/        # Authentication pages
+│       │   ├── router/           # React Router configuration
+│       │   ├── stores/           # Zustand stores
+│       │   ├── types/            # TypeScript type definitions
+│       │   ├── App.tsx           # Root app component
+│       │   ├── main.tsx          # Application entry point
+│       │   └── index.css         # Global styles with TailwindCSS
+│       ├── public/               # Public assets
+│       └── index.html            # HTML template
 │
 ├── package.json                  # Root workspace configuration
 ├── pnpm-workspace.yaml           # Workspace definition
@@ -133,6 +177,13 @@ fe-mono/
 - **Cross-Platform**: Uses `uni.*` APIs instead of platform-specific APIs
 - **TypeScript**: `@dcloudio/types` for UniApp API type definitions
 
+### react-demo Architecture
+- **Routing**: React Router 6 with programmatic navigation and route guards
+- **State Management**: Zustand stores with persistence middleware
+- **Styling**: TailwindCSS with custom CSS for component-specific styles
+- **TypeScript**: Strict mode enabled, path alias `@/` for `src/`
+- **Testing**: Vitest scripts configured for unit testing
+
 ### Dependency Management
 - Each package manages its own dependencies in its `package.json`
 - Root `pnpm-lock.yaml` ensures consistent versions across packages
@@ -154,11 +205,13 @@ fe-mono/
 ### Code Quality
 - **vue3-app**: ESLint scripts configured (dependencies may need installation)
 - **uni-vue3**: Full ESLint + Prettier + oxlint setup with shared configs
+- **react-demo**: ESLint with React/TypeScript rules configured
 - Run `pnpm run lint:<project>` before committing changes
 
 ### Testing
 - **vue3-app**: Vitest scripts configured (dependencies may need installation)
 - **uni-vue3**: No test framework configured yet - consider adding Vitest
+- **react-demo**: Vitest scripts configured for unit testing
 
 ### Cross-Project Considerations
 - These are independent applications with no shared code
@@ -175,6 +228,7 @@ fe-mono/
 ### Build Outputs
 - **vue3-app**: Outputs to `packages/vue3-app/dist/`
 - **uni-vue3**: Outputs to `packages/uni-vue3/dist/` (H5) or `packages/uni-vue3/unpackage/dist/` (other platforms)
+- **react-demo**: Outputs to `packages/react-demo/dist/`
 
 ## Common Issues
 

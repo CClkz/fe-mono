@@ -8,7 +8,10 @@
       "Bash(cd ./vite-vue3-ts && pnpm add vue-router@4)",
       "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && pnpm run --list)",
       "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && pnpm run)",
-      "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && mv packages/vite-vue3-ts packages/vue3-app)"
+      "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && mv packages/vite-vue3-ts packages/vue3-app)",
+      "Bash(cd \"D:\\\\coding\\\\front-end\\\\fe-mono\" && pnpm run type-check:vue3-app)",
+      "Bash(echo '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\"><path fill=\"none\" d=\"M0 0h32v32H0z\"/><path d=\"M29.88 5.52L16.24 28.16a1.12 1.12 0 0 1-1.92 0L2.12 5.52a1.12 1.12 0 0 1 1-1.64h25.76a1.12 1.12 0 0 1 1 1.64z\" fill=\"#ffcc00\"/><path d=\"M22.12 2.88L9.88 2.88a1.12 1.12 0 0 0-1 1.64l12.64 22.64a1.12 1.12 0 0 0 1.92 0L23.12 4.52a1.12 1.12 0 0 0-1-1.64z\" fill=\"#fff\"/></svg>' > \"D:\\\\coding\\\\front-end\\\\fe-mono\\\\packages\\\\react-demo\\\\public\\\\vite.svg\")",
+      "Bash(cd \"packages/react-app\" && pnpm run type-check)"
     ]
   }
 }

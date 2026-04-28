@@ -44,6 +44,10 @@
 
     <!-- 功能菜单 -->
     <div class="menu-list">
+      <div v-if="authStore.isLoggedIn" class="menu-item" @click="goToIndex">
+        <span class="menu-text">首页</span>
+        <span class="arrow">›</span>
+      </div>
       <div v-if="authStore.isLoggedIn" class="menu-item" @click="goToProfile">
         <span class="menu-text">个人资料</span>
         <span class="arrow">›</span>
@@ -111,6 +115,10 @@ const handleAvatarUpload = (event: Event) => {
   }
   // 清空输入框，以便可以再次选择同一文件
   input.value = ''
+}
+
+const goToIndex = () => {
+  router.push('/index')
 }
 
 // 跳转到登录页面
