@@ -1,0 +1,4 @@
+{
+  "primaryApiKey": "test",
+  "agentsPath": ".claude/agents"
+}

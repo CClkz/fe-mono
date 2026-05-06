@@ -1,0 +1,112 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    },
+    {
+      "path": "pages/blog/blog",
+      "style": {
+        "navigationBarTitleText": "博客"
+      }
+    },
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationBarTitleText": "用户中心"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "style": {
+        "navigationBarTitleText": "注册"
+      }
+    },
+    {
+      "path": "pages/login/forgot-password",
+      "style": {
+        "navigationBarTitleText": "找回密码"
+      }
+    },
+    {
+      "path": "pages/user/profile",
+      "style": {
+        "navigationBarTitleText": "个人资料"
+      }
+    },
+    {
+      "path": "pages/user/settings",
+      "style": {
+        "navigationBarTitleText": "设置"
+      }
+    },
+    {
+      "path": "pages/user/my-posts",
+      "style": {
+        "navigationBarTitleText": "我的帖子"
+      }
+    },
+    {
+      "path": "pages/user/my-comments",
+      "style": {
+        "navigationBarTitleText": "我的评论"
+      }
+    },
+    {
+      "path": "pages/user/favorites",
+      "style": {
+        "navigationBarTitleText": "我的收藏"
+      }
+    },
+    {
+      "path": "pages/user/my-blog",
+      "style": {
+        "navigationBarTitleText": "我的博客"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "hello"
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "text": "博客"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我"
+      }
+    ]
+  },
+  "condition": {
+    "current": 0,
+    "list": [
+      {
+        "name": "",
+        "path": "",
+        "query": ""
+      }
+    ]
+  }
+}
